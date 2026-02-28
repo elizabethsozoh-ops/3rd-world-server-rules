@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+nul
+generate_voice.ps1
 
 # debug
 npm-debug.log*
