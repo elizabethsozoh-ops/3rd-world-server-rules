@@ -23,6 +23,8 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
     const [examQuestions, setExamQuestions] = useState([]);
     const [answeredQuestions, setAnsweredQuestions] = useState([]);
     const [wrongCount, setWrongCount] = useState(0);
+    const [discordUsername, setDiscordUsername] = useState('');
+    const [usernameError, setUsernameError] = useState('');
 
     const isEnd = currentPage >= totalPages;
 
@@ -37,6 +39,16 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
     }, [currentPage, isEnd, isOpen, mode]);
 
     const startQuiz = () => {
+        const trimmed = discordUsername.trim();
+        if (!trimmed || trimmed.length < 2) {
+            setUsernameError('IDENTIFY YOURSELF. Minimum 2 characters.');
+            return;
+        }
+        if (trimmed.length > 32) {
+            setUsernameError('Username too long. Maximum 32 characters.');
+            return;
+        }
+        setUsernameError('');
         const shuffled = [...QUIZ_QUESTIONS].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, TOTAL_QUESTIONS);
         setExamQuestions(selected);
@@ -57,6 +69,8 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
                 body: JSON.stringify({
                     score: finalScore,
                     total: TOTAL_QUESTIONS,
+                    passThreshold: PASS_THRESHOLD,
+                    discordUsername: discordUsername.trim(),
                     questions,
                     timestamp: new Date().toISOString(),
                 }),
@@ -73,6 +87,8 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
         const updatedAnswered = [...answeredQuestions, {
             question: q.question.substring(0, 80),
             correct: isCorrect,
+            picked: q.options[optionIdx].substring(0, 60),
+            answer: q.options[q.correct].substring(0, 60),
         }];
         setAnsweredQuestions(updatedAnswered);
 
@@ -233,6 +249,24 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
                                             <span>Professionalism and accuracy are expected during this terminal session.</span>
                                         </p>
                                     </div>
+                                </div>
+
+                                {/* Discord Username Input */}
+                                <div className="mb-4">
+                                    <label className="block text-[10px] text-cyan-400 font-black tracking-[0.3em] uppercase mb-2">
+                                        DISCORD USERNAME — REQUIRED
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={discordUsername}
+                                        onChange={(e) => { setDiscordUsername(e.target.value); setUsernameError(''); }}
+                                        placeholder="Enter your Discord username"
+                                        className="w-full p-3 bg-zinc-900/90 border border-zinc-700 focus:border-cyan-400 text-white text-sm font-bold rounded-lg outline-none transition-all placeholder:text-zinc-600"
+                                        maxLength={32}
+                                    />
+                                    {usernameError && (
+                                        <p className="text-red-400 text-xs font-bold mt-1 tracking-wide">{usernameError}</p>
+                                    )}
                                 </div>
 
                                 <button
