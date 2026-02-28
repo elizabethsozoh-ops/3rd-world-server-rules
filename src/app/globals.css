@@ -10,6 +10,12 @@ body {
   font-family: var(--font-body);
 }
 
+/* Force-hide browser auto-generated captions/subtitles */
+video::cue { opacity: 0 !important; }
+::cue { opacity: 0 !important; }
+video::-webkit-media-text-track-container { display: none !important; }
+video::-webkit-media-text-track-display { display: none !important; }
+
 /* Professional Typography Hierarchy - Digital Optimized */
 .hierarchy-title {
   @apply text-2xl font-black tracking-tight uppercase;
