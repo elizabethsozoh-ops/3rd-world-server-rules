@@ -13,7 +13,7 @@ const ZerNessBadge = ({ visible }) => {
     const frameRef = useRef(null);
 
     useEffect(() => {
-        if (!canvasRef.current) return;
+        if (!visible || !canvasRef.current) return;
 
         const canvas = canvasRef.current;
         const W = 80, H = 58;
@@ -103,7 +103,7 @@ const ZerNessBadge = ({ visible }) => {
             if (frameRef.current) cancelAnimationFrame(frameRef.current);
             renderer.dispose();
         };
-    }, []);
+    }, [visible]);
 
     const handleHover = () => { spinBoostRef.current = 8; };
 
@@ -112,7 +112,7 @@ const ZerNessBadge = ({ visible }) => {
     return (
         <a
             ref={badgeRef}
-            href="https://zernesslab.com"
+            href="https://zernesslab.co.za"
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={handleHover}
