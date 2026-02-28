@@ -49,7 +49,7 @@ const ZerNessBadge = ({ visible }) => {
 
         const loader = new FontLoader();
         loader.load(
-            'https://unpkg.com/three@0.182.0/examples/fonts/helvetiker_bold.typeface.json',
+            '/assets/helvetiker_bold.typeface.json',
             (font) => {
                 const opts = {
                     font,
