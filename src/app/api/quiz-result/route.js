@@ -35,7 +35,7 @@ export async function POST(req) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 username: 'W.I.Z',
-                avatar_url: 'https://cdn-icons-png.flaticon.com/512/4712/4712109.png',
+                // avatar uses webhook default (W.I.Z avatar configured in Discord)
                 embeds: [embed],
             }),
         });
