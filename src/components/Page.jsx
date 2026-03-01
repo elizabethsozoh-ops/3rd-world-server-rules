@@ -1263,7 +1263,7 @@ const Page = forwardRef((props, ref) => {
                     <div className={`overflow-hidden ${id === 'rules-off-server-conduct' || id === 'greenzones-gunplay' ? 'flex-shrink-0' : 'flex-1'}`}>
                         <div className={`font-body text-zinc-100 antialiased ${id === 'rules-roleplay-first' ? 'text-[13.5px] leading-[1.55] space-y-2.5' :
                             id === 'character-conduct-1' ? 'text-[13px] leading-[1.5] space-y-2' :
-                                id === 'exploiting-mechanics-1' ? 'text-[14px] leading-[1.65] space-y-2.5' :
+                                id === 'exploiting-mechanics-1' ? 'text-[13.5px] leading-[1.5] space-y-1' :
                                     id === 'exploiting-mechanics-2' ? 'text-[14px] leading-relaxed space-y-2' :
                                         id === 'metagaming-powergaming-1' ? 'text-[11.5px] leading-[1.4] space-y-1.5' :
                                             id === 'failrp-government-2' ? 'text-[11px] leading-[1.4] space-y-1.5' :
