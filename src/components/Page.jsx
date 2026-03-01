@@ -100,7 +100,7 @@ const Page = forwardRef((props, ref) => {
 
         return (
             <div className="comic-page w-full h-full bg-black relative overflow-hidden border-l-4 border-zinc-900 cursor-default" ref={ref} data-density="hard">
-{/* Smoke video moved inside inner frame */}
+                {/* Smoke video moved inside inner frame */}
 
                 {/* Button Overlay */}
                 <div
@@ -1594,7 +1594,7 @@ const Page = forwardRef((props, ref) => {
                                             elements.push(
                                                 <p key={i} className={`block text-emerald-400 font-normal pl-4 leading-relaxed ${id === 'rules-roleplay-first' ? 'text-[13px] mb-2' :
                                                     id === 'character-conduct-1' ? 'text-[12.5px] mb-1.5' :
-                                                            'text-[14px] mb-2'
+                                                        'text-[14px] mb-2'
                                                     }`} style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>
                                                     {trimmed}
                                                 </p>
@@ -2049,6 +2049,9 @@ const Page = forwardRef((props, ref) => {
                             </div>
                         )
                     }
+
+                    {/* Rule Playground - Interactive CSS Stick Figures */}
+                    <RulePlayground id={id} />
                 </div>
             </div>
         );
@@ -2124,7 +2127,240 @@ const Page = forwardRef((props, ref) => {
 });
 
 // SUB-COMPONENT: Comic-style onomatopoeia popups
+
+// SUB-COMPONENT: Interactive "Rule Toys" to fill empty space on specific pages
+const RulePlayground = ({ id }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    // Page 30: conflict-rules-2b (Turf & Heists)
+    if (id === 'conflict-rules-2b') {
+        return (
+            <motion.div
+                className="relative h-24 mt-auto mb-4 mx-6 border-b border-red-500/20 flex items-end justify-center pointer-events-auto cursor-help"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                {/* Turf Hill */}
+                <div className="absolute bottom-0 w-32 h-6 bg-zinc-800 rounded-t-full border-t border-red-500/30" />
+                {/* Stick Figure */}
+                <motion.div
+                    className="relative mb-6 flex flex-col items-center"
+                    animate={isHovered ? { rotate: [0, -5, 5, -5, 5, 0] } : {}}
+                    transition={{ repeat: Infinity, duration: 0.5 }}
+                >
+                    {/* Flag */}
+                    <motion.div
+                        className="absolute -left-4 -top-6 w-1 h-12 bg-zinc-400 origin-bottom"
+                        animate={isHovered ? { rotate: [-10, -20, -10] } : { rotate: -10 }}
+                    >
+                        <div className="absolute top-0 right-0 w-6 h-4 bg-red-600 border border-white/20" />
+                    </motion.div>
+                    {/* Head */}
+                    <div className="w-4 h-4 rounded-full border-2 border-white mb-0.5" />
+                    {/* Body */}
+                    <div className="w-0.5 h-6 bg-white" />
+                    {/* Arms */}
+                    <div className="absolute top-5 w-6 h-0.5 bg-white" />
+                    {/* Legs */}
+                    <div className="flex gap-2 -mt-1">
+                        <div className="w-0.5 h-6 bg-white rotate-[20deg]" />
+                        <div className="w-0.5 h-6 bg-white -rotate-[20deg]" />
+                    </div>
+                    {/* Bubble - Moved to the side to avoid text overlap */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0, x: -10 }}
+                        animate={isHovered ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0, x: -10 }}
+                        className="absolute left-10 top-0 bg-white text-black font-black px-2 py-1 rounded-lg text-[10px] whitespace-nowrap shadow-lg border border-black/10"
+                    >
+                        MY TURF!
+                        {/* Bubble Tail - Now pointing left */}
+                        <div className="absolute top-1/2 -left-1 w-2 h-2 bg-white rotate-45 -translate-y-1/2" />
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+        );
+    }
+
+    // Page 31: conflict-rules-3a (Endless Conflict)
+    if (id === 'conflict-rules-3a') {
+        return (
+            <motion.div
+                className="relative h-24 mt-auto mb-4 mx-6 flex items-center justify-center pointer-events-auto cursor-help"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                <div className="w-full h-0.5 bg-zinc-900 absolute bottom-4" />
+                {/* Runners */}
+                <div className="relative w-full h-full flex items-center justify-around overflow-hidden">
+                    <motion.div
+                        className="flex flex-col items-center"
+                        animate={isHovered ? { x: [0, 400], opacity: [1, 1] } : {}}
+                        transition={isHovered ? { repeat: Infinity, duration: 1.5, ease: "linear" } : {}}
+                    >
+                        {/* Runner 1 */}
+                        <div className="w-3 h-3 rounded-full border border-white mb-0.5" />
+                        <div className="w-0.5 h-4 bg-white" />
+                        <div className="flex gap-1 -mt-0.5">
+                            <motion.div className="w-0.5 h-4 bg-white" animate={isHovered ? { rotate: [20, -20, 20] } : {}} transition={{ repeat: Infinity, duration: 0.2 }} />
+                            <motion.div className="w-0.5 h-4 bg-white" animate={isHovered ? { rotate: [-20, 20, -20] } : {}} transition={{ repeat: Infinity, duration: 0.2 }} />
+                        </div>
+                    </motion.div>
+
+                    {!isHovered && (
+                        <motion.div className="flex flex-col items-center absolute right-1/4">
+                            <div className="absolute -top-8 w-4 h-4 bg-white text-black flex items-center justify-center text-[10px] font-bold">🏳️</div>
+                            <div className="w-3 h-3 rounded-full border border-white mb-0.5" />
+                            <div className="w-0.5 h-4 bg-white" />
+                            <div className="flex gap-1 -mt-0.5">
+                                <div className="w-0.5 h-4 bg-white rotate-[20deg]" />
+                                <div className="w-0.5 h-4 bg-white -rotate-[20deg]" />
+                            </div>
+                        </motion.div>
+                    )}
+                </div>
+            </motion.div>
+        );
+    }
+
+    // Page 33: conflict-rules-3b (Pocket Wiping)
+    if (id === 'conflict-rules-3b') {
+        const StickFigureLying = () => (
+            <div className="relative w-24 h-6 flex items-center justify-center">
+                {/* Torso */}
+                <div className="absolute w-12 h-0.5 bg-white/40" />
+                {/* Head */}
+                <div className="absolute -right-2 w-4 h-4 rounded-full border-2 border-white/40" />
+                {/* Left Leg */}
+                <div className="absolute left-0 w-6 h-0.5 bg-white/30 rotate-[15deg] origin-right" style={{ right: '100%', marginRight: '-6px' }} />
+                {/* Right Leg */}
+                <div className="absolute left-0 w-6 h-0.5 bg-white/30 rotate-[-15deg] origin-right" style={{ right: '100%', marginRight: '-6px' }} />
+                {/* Left Arm */}
+                <div className="absolute left-6 w-5 h-0.5 bg-white/30 rotate-[45deg] origin-left" />
+                {/* Right Arm */}
+                <div className="absolute left-6 w-5 h-0.5 bg-white/30 rotate-[-45deg] origin-left" />
+            </div>
+        );
+
+        return (
+            <motion.div
+                className="relative h-24 mt-auto mb-4 mx-6 flex items-end justify-center pointer-events-auto cursor-help"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                <div className="relative">
+                    {/* Shadow/Floor */}
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-28 h-2 bg-black/40 blur-sm rounded-full" />
+
+                    {/* The Person */}
+                    <StickFigureLying />
+
+                    {/* Robber Hand */}
+                    <motion.div
+                        className="absolute -top-20 left-0 flex flex-col items-center w-full"
+                        animate={isHovered ? { y: [0, 8, 0], scale: [1, 1.1, 1] } : { y: 40, opacity: 0 }}
+                    >
+                        <span className="text-4xl filter drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">🫳</span>
+                        {/* Loot Items - Dramatized */}
+                        <motion.div
+                            className="absolute -top-14 flex gap-6"
+                            animate={isHovered ? { y: [-10, -50], opacity: [0, 1] } : {}}
+                            transition={{ delay: 0.1 }}
+                        >
+                            <div className="relative flex flex-col items-center">
+                                <span className="text-3xl filter grayscale opacity-60">🥪</span>
+                                <div className="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-5xl animate-pulse">✕</div>
+                            </div>
+                            <div className="relative flex flex-col items-center">
+                                <span className="text-3xl filter grayscale opacity-60">💧</span>
+                                <div className="absolute inset-0 flex items-center justify-center text-red-500 font-bold text-5xl animate-pulse">✕</div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </motion.div>
+        );
+    }
+
+    // Page 34: nlr-rules-1 (Post-Conflict Behavior)
+    if (id === 'nlr-rules-1') {
+        return (
+            <motion.div
+                className="relative h-28 mt-auto mb-4 mx-6 flex items-end justify-center pointer-events-auto cursor-help"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                <div className="relative flex flex-col items-center">
+                    {/* The "Shout" Bubble */}
+                    <motion.div
+                        className="absolute -top-16 bg-red-600 text-white font-black px-4 py-2 border-2 border-black rotate-[-5deg]"
+                        animate={isHovered ? { scale: 0, opacity: 0 } : {
+                            scale: [1, 1.1, 1],
+                            rotate: [-5, -7, -5]
+                        }}
+                        style={{
+                            clipPath: 'polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%)',
+                        }}
+                    >
+                        <span className="text-xl">#!@&$!</span>
+                    </motion.div>
+
+                    {/* The Duct Tape Slap */}
+                    <motion.div
+                        initial={{ scale: 0, opacity: 0, y: -20 }}
+                        animate={isHovered ? { scale: 1, opacity: 1, y: 0, rotate: 5 } : { scale: 2, opacity: 0, y: -100 }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 15 }}
+                        className="absolute -top-12 z-50 w-24 h-8 bg-zinc-400 border-x-2 border-zinc-500 shadow-xl flex items-center justify-center"
+                    >
+                        <div className="absolute inset-x-0 h-0.5 bg-zinc-500/30 top-1" />
+                        <div className="absolute inset-x-0 h-0.5 bg-zinc-500/30 bottom-1" />
+                        <span className="text-[10px] text-zinc-800 font-bold tracking-tighter uppercase opacity-60">DUCT TAPE RP</span>
+                    </motion.div>
+
+                    {/* The RP Badge */}
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        animate={isHovered ? { scale: 1 } : { scale: 0 }}
+                        className="absolute -top-16 -right-12 w-10 h-10 rounded-full bg-emerald-500 border-2 border-black flex items-center justify-center shadow-lg"
+                    >
+                        <span className="text-xl">🎭</span>
+                    </motion.div>
+
+                    {/* Downed player */}
+                    <div className="relative h-12 w-24 flex items-center justify-center">
+                        <div className="w-20 h-1.5 bg-black/40 blur-sm rounded-full mt-6" /> {/* Shadow */}
+                        <motion.div
+                            className="absolute inset-0 flex flex-col items-center justify-center"
+                            animate={isHovered ? { y: 0 } : { y: [0, -2, 0] }}
+                            transition={{ repeat: Infinity, duration: 0.5 }}
+                        >
+                            {/* Improved Stick Figure assembly lying down */}
+                            <div className="relative w-16 h-4">
+                                <div className="absolute top-1.5 left-4 w-8 h-0.5 bg-white/50" /> {/* Torso */}
+                                <div className="absolute top-0 right-0 w-4 h-4 rounded-full border-2 border-white/40" /> {/* Head */}
+                                <div className="absolute top-1.5 left-0 w-5 h-0.5 bg-white/40 rotate-[15deg] origin-right" /> {/* Leg 1 */}
+                                <div className="absolute top-1.5 left-0 w-5 h-0.5 bg-white/40 rotate-[-15deg] origin-right" /> {/* Leg 2 */}
+                            </div>
+
+                            {/* Angry pulse if not hovered */}
+                            {!isHovered && (
+                                <motion.div
+                                    animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0] }}
+                                    transition={{ repeat: Infinity, duration: 1 }}
+                                    className="absolute -top-4 w-8 h-8 rounded-full border border-red-500"
+                                />
+                            )}
+                        </motion.div>
+                    </div>
+                </div>
+            </motion.div>
+        );
+    }
+
+    return null;
+}
+
 const ComicPopup = ({ text, x, y, rotate, color = 'yellow', scale = 1, delay = 0.5 }) => {
+
     const colors = {
         yellow: 'bg-yellow-400 text-black border-black shadow-[4px_4px_0_rgba(0,0,0,1)]',
         red: 'bg-red-600 text-white border-white shadow-[4px_4px_0_rgba(255,255,255,0.3)]',
