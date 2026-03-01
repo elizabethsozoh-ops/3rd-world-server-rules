@@ -17,6 +17,24 @@ const robotoCondensed = Roboto_Condensed({
 export const metadata = {
   title: "3rd World RP - Server Rules",
   description: "Interactive Comic Book Rulebook for 3rd World RP",
+  openGraph: {
+    title: "3rd World RP - Server Rules",
+    description: "Interactive Comic Book Rulebook for 3rd World RP",
+    images: [
+      {
+        url: "/assets/3RDWORLDROLEPLAY-COVERPAGE.png",
+        width: 1200,
+        height: 630,
+        alt: "3rd World Roleplay - Server Rules",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "3rd World RP - Server Rules",
+    description: "Interactive Comic Book Rulebook for 3rd World RP",
+    images: ["/assets/3RDWORLDROLEPLAY-COVERPAGE.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
