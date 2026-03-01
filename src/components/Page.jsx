@@ -1604,7 +1604,7 @@ const Page = forwardRef((props, ref) => {
                                         // Special handling for "Do not exploit situations including:"
                                         const isExploitIntro = trimmed === 'Do not exploit situations including:';
                                         // NVL + Metagaming page: green starts, no gaps between paragraphs
-                                        if (id === 'exploiting-mechanics-3' || id === 'metagaming-powergaming-1') {
+                                        if (id === 'exploiting-mechanics-3' || id === 'metagaming-powergaming-1' || id === 'failrp-government-1' || id === 'failrp-government-2') {
                                             const greenStarts = [
                                                 'Value your life',
                                                 'This includes when a gun',
@@ -1615,7 +1615,9 @@ const Page = forwardRef((props, ref) => {
                                                 'Support streamers by subscribing',
                                                 'Do not under any circumstance',
                                                 'Powergaming is when you force',
-                                                'Do not engage streamers'
+                                                'Do not engage streamers',
+                                                'Please ensure that your character',
+                                                'If you\'re upset OOC'
                                             ];
                                             let matched = null;
                                             for (const gs of greenStarts) {
