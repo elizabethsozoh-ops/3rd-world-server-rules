@@ -467,7 +467,7 @@ Do not under any circumstance use a stream to gain information about a streamer'
 
 NO POWERGAMING
 
-Powergaming is when you force outcomes on another player without giving them a fair chance to react, respond, or contribute to the RP. It removes their agency and turns RP into a one-sided interaction. You must leave room for player response - even in hostile situations like robberies, kidnappings, or executions.
+Powergaming is when you force outcomes on another player without giving them a fair chance to react, respond or contribute to the RP. It removes their agency and turns RP into a one-sided interaction. You must leave room for player response - even in hostile situations like robberies, kidnappings, or executions.
 
 EXAMPLES OF POWERGAMING:
 
