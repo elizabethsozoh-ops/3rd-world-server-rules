@@ -798,17 +798,7 @@ Cancer, terminal illness, or life-threatening diseases, pregnancy complications,
         section: 'GOVERNMENT RULES',
         sectionColor: 'amber',
         isFirstPageOfSection: true,
-        content: `GRAPHIC CONTENT
-
-NO EROTIC ROLEPLAY
-is strictly prohibited in all forms – including text, emotes, or animations.
-
-BAD TASTE RP
-You may not roleplay topics that mirror real-life trauma or suffering in ways that are distressing, out of place, or disruptive to the community.
-
-Cancer, terminal illness, or life-threatening diseases, pregnancy complications, including miscarriage or abortion RP, suicide, self-harm, or mental health crisis RP
-
-GOVERNMENT OR ALLOW-LISTED JOBS (PD / EMS)
+        content: `GOVERNMENT OR ALLOW-LISTED JOBS (PD / EMS)
 
 Server Staff reserve the right to investigate and take action against corruption roleplay that is deemed excessive, unrealistic or detrimental to the server's balance.
 
