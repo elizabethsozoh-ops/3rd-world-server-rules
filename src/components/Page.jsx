@@ -1299,11 +1299,11 @@ const Page = forwardRef((props, ref) => {
                                             elements.push(
                                                 <div key="welcome-block" className="mb-4">
                                                     {/* Big red welcome */}
-                                                    <p className="text-red-500 font-display font-black text-3xl uppercase leading-tight mb-3 drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] text-center">
+                                                    <p className="text-red-500 font-black text-3xl uppercase leading-tight mb-3 drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] text-center italic tracking-wider">
                                                         {headline}
                                                     </p>
                                                     {/* Body text */}
-                                                    <p className="text-zinc-200 text-[14px] leading-relaxed text-center">
+                                                    <p className="text-zinc-200 text-[14px] leading-relaxed">
                                                         {bodyText}
                                                     </p>
                                                 </div>
@@ -1344,7 +1344,7 @@ const Page = forwardRef((props, ref) => {
                                             const pillars = paras.slice(i + 1, i + 4);
                                             elements.push(
                                                 <div key={`philosophy-${i}`} className="flex flex-col flex-1">
-                                                    <p className="text-white font-black text-[18px] mb-4 tracking-wide uppercase bg-white/5 py-1 rounded text-center" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>
+                                                    <p className="text-white font-black text-[18px] mb-4 tracking-wide uppercase bg-white/5 py-1 px-3 rounded border-l-4 border-white" style={{ textShadow: '0 0 10px rgba(255,255,255,0.4)' }}>
                                                         Our philosophy is simple:
                                                     </p>
                                                     {/* Spaced bullet list to fill remaining page */}
@@ -1355,7 +1355,7 @@ const Page = forwardRef((props, ref) => {
                                                             const line = rest.join(' ');
                                                             const [titlePart, descPart] = line.split(' – ');
                                                             return (
-                                                                <li key={pIdx} className="flex items-start gap-3 text-[14px] leading-relaxed py-1 justify-center">
+                                                                <li key={pIdx} className="flex items-start gap-3 text-[14px] leading-relaxed py-1 border-l-2 border-white/20 pl-4">
                                                                     <span className="text-xl flex-shrink-0 mt-0.5">{emoji}</span>
                                                                     <span className="text-zinc-100">
                                                                         <strong className="text-white font-black text-[15px]">{titlePart}</strong>
