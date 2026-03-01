@@ -27,12 +27,10 @@ export async function POST(req) {
 
         const members = await res.json();
 
-        // Check if any member's username or display name matches (case-insensitive)
+        // Only match exact Discord username (the unique one, not display name/nickname)
         const trimmed = username.trim().toLowerCase();
         const match = members.find(m =>
-            m.user.username.toLowerCase() === trimmed ||
-            m.user.global_name?.toLowerCase() === trimmed ||
-            m.nick?.toLowerCase() === trimmed
+            m.user.username.toLowerCase() === trimmed
         );
 
         if (match) {

@@ -280,14 +280,15 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
 
                                 {/* Discord Username Input */}
                                 <div className="mb-4">
-                                    <label className="block text-[10px] text-cyan-400 font-black tracking-[0.3em] uppercase mb-2">
+                                    <label className="block text-[10px] text-cyan-400 font-black tracking-[0.3em] uppercase mb-1">
                                         DISCORD USERNAME — REQUIRED
                                     </label>
+                                    <p className="text-[10px] text-zinc-500 mb-2">Must match your exact Discord username (case-insensitive, include underscores and numbers)</p>
                                     <input
                                         type="text"
                                         value={discordUsername}
                                         onChange={(e) => { setDiscordUsername(e.target.value); setUsernameError(''); }}
-                                        placeholder="Enter your Discord username"
+                                        placeholder="e.g. werner_ness"
                                         className="w-full p-3 bg-zinc-900/90 border border-zinc-700 focus:border-cyan-400 text-white text-sm font-bold rounded-lg outline-none transition-all placeholder:text-zinc-600"
                                         maxLength={32}
                                     />
