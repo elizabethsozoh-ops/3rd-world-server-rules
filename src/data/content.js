@@ -43,7 +43,7 @@ OUR PHILOSOPHY IS SIMPLE:
         title: '3RD WORLD COMMUNITY RULES',
         content: `NO HATE SPEECH OR REAL-WORLD BIGOTRY
 
-This is a roleplay community, not a space for real-world politics or prejudice. Any form of racism, sexism, homophobia, transphobia, religious intolerance or similar bigotry will result in immediate removal. This includes real-world hate speech (in OR out of character). Roleplay cannot be used to excuse hate. You can play a villain without importing real-world bigotry. Violations can be reported in the Discord.
+This is a roleplay community, not a space for real-world politics or prejudice. Any form of racism, sexism, homophobia, transphobia, religious intolerance or similar bigotry will result in immediate removal. This includes real-world hate speech (in OR out of character). Roleplay cannot be used to excuse hate. You can play a villain without importing real-world bigotry. Violators will be removed from the community.
 
 NO HARASSMENT
 
@@ -373,21 +373,21 @@ Refrain from snide remarks towards gang members and negative remarks in conversa
 
 If there is a mechanic that does not seem to be working as intended or that is over tuned (e.g., emote spamming, use of emotes to hide actions or in combat, abusable economic rewards), report this to staff and stop using this mechanic.
 
-Do not exploit situations including:
+Also, do not undertake actions which would exploit a situation including but not limited to:
 
 • Combat logging
 
-• Money/item duplication or glitch abuse - report immediately
+• Any form of money/item duplication, glitch abuse, or exploiting game mechanics to generate wealth is strictly forbidden and must be reported as soon as it is found.
 
-• Speed boosting and glitch rolling - 7-Day Timeout penalty
+• Speed boosting and Glitch rolling is PROHIBITED. Any members caught doing this will be given an immediate 7-Day Timeout. The Third Sun Rises
 
 • Camping respawn points
 
-• Major crime mechanics 30 minutes before/after server restarts
+• Major crime mechanics (Any heists including store robberies) 30 minutes before or after regularly scheduled restarts.
 
-THEFT OF GOVERNMENT VEHICLES IS PROHIBITED (PD/EMS)
+THEFT AND OPERATION OF GOVERNMENT VEHICLES IS PROHIBITED (PD/EMS)
 
-Members caught in violation will be punished. PD/EMS giving these vehicles to unauthorized personnel will also result in punishment.`,
+Members caught in violation of this rule will be punished. PD/EMS Giving these vehicles to unauthorized personal will also result in punishment.`,
         pageNumber: 19,
         enhancedVisuals: true
     },
@@ -901,16 +901,16 @@ export const QUIZ_QUESTIONS = [
         wrongResponse: "Fail RP! You can't remember your killer if you were executed or respawned."
     },
     {
-        question: "Your friend tells you on Discord where a rival gang is hiding. Can you use this info in-game?",
+        question: "You're grinding a job and another player walks up and tries to RP with you. What do you do?",
         options: [
-            "Yes, Discord is part of the game.",
-            "Only if I pretend to 'discover' them naturally.",
-            "No — using any OOC info in-character is strictly prohibited.",
-            "Yes, but only if my friend is also in the server."
+            "Ignore them — I'm busy farming.",
+            "Tell them to go away OOC.",
+            "Engage with their RP — there is no 'busy farming' exception.",
+            "Alt-Tab and wait for them to leave."
         ],
         correct: 2,
-        correctResponse: "Correct. What happens outside the city stays outside the city.",
-        wrongResponse: "Wrong! Using OOC information in-character is never allowed."
+        correctResponse: "Correct. RP comes first, always. No 'busy farming' exception.",
+        wrongResponse: "Wrong! If someone offers RP, you are expected to engage. No exceptions."
     },
     {
         question: "Can you rob someone in a Police Station lobby?",
@@ -925,28 +925,28 @@ export const QUIZ_QUESTIONS = [
         wrongResponse: "Are you crazy? That's a Green Zone. Forbidden."
     },
     {
-        question: "You're being robbed at gunpoint by 2 people. What's the correct response?",
+        question: "A server-wide event like a concert or mayoral debate is happening. Can you start a shootout during it?",
         options: [
-            "Pull out my gun and fight — I'm outnumbered but skilled.",
-            "Alt+F4 to avoid losing my items.",
-            "Comply and value your life — you're at a clear disadvantage.",
-            "Run away while they're talking."
+            "Yes — it would make for great content.",
+            "Only if I have a crew.",
+            "No — players are not allowed to intervene until the event has concluded.",
+            "Only if I ask in OOC chat first."
         ],
         correct: 2,
-        correctResponse: "Smart. Value your life. You can always get revenge later... in RP.",
-        wrongResponse: "Wrong! When you're at a disadvantage, you must comply. Value your life."
+        correctResponse: "Correct. Server events are protected. Wait until they're over.",
+        wrongResponse: "Wrong! Server events are protected from interruption. Devs, staff, and players put too much effort into them."
     },
     {
-        question: "Someone crashes into your car on purpose and kills you. What rule did they break?",
+        question: "You're downed in a shootout. While waiting for EMS, what should you NOT do?",
         options: [
-            "Green Zone violation.",
-            "Combat logging.",
-            "Vehicle Deathmatch — using a vehicle as a weapon without RP reason.",
-            "Pocket wiping."
+            "RP being injured and in pain.",
+            "Trash talk the person who downed you (e.g., 'get shit on').",
+            "Call out for medical help.",
+            "Stay in character and respond to anyone who approaches."
         ],
-        correct: 2,
-        correctResponse: "Correct. Cars aren't weapons. Report it with a clip.",
-        wrongResponse: "Wrong! Using a vehicle to intentionally kill without RP is VDM."
+        correct: 1,
+        correctResponse: "Correct. Post-conflict trash talk and OOC comments while downed are prohibited.",
+        wrongResponse: "Wrong! You must stay in character while downed. No trash talk, no complaining about lag or mechanics."
     },
     {
         question: "You witness two gangs in a gunfight. You're not involved. What do you do?",
@@ -1223,5 +1223,269 @@ export const QUIZ_QUESTIONS = [
         correct: 1,
         correctResponse: "Correct. Only take what makes sense for the scene. No greed looting.",
         wrongResponse: "Wrong! Taking everything with no RP reason is pocket wiping and it's banned."
+    },
+    {
+        question: "You are downed and unreachable by PD or EMS. When can you use the respawn mechanic?",
+        options: [
+            "Whenever I feel like it.",
+            "Only when unreachable by PD/medical, or when glitched.",
+            "After 2 minutes of waiting.",
+            "Immediately after being downed."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Respawn is a last resort, not a shortcut.",
+        wrongResponse: "Wrong! You may only respawn when truly unreachable or glitched."
+    },
+    {
+        question: "What is the maximum number of players allowed on the criminal side during a heist?",
+        options: [
+            "3 players.",
+            "5 players.",
+            "8 players.",
+            "Unlimited."
+        ],
+        correct: 1,
+        correctResponse: "Correct. 5 max for criminals, 8 for police.",
+        wrongResponse: "Wrong! Heists are capped at 5 criminals."
+    },
+    {
+        question: "How many players are allowed for a Main Bank heist?",
+        options: [
+            "4 players.",
+            "5 players.",
+            "6 players.",
+            "8 players."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Main Bank allows 6 players.",
+        wrongResponse: "Wrong! Main Bank is the exception — 6 players are allowed."
+    },
+    {
+        question: "Gang wars are permitted in a specific area of the city. Where?",
+        options: [
+            "Anywhere on the map.",
+            "South Side — anything below Olympic Freeway.",
+            "Only in gang hideouts.",
+            "Only outside the city limits."
+        ],
+        correct: 1,
+        correctResponse: "Correct. South Side, below Olympic Freeway.",
+        wrongResponse: "Wrong! Gang wars are designated to the South Side, below Olympic Freeway."
+    },
+    {
+        question: "What happens if gang wars or shots fired occur ABOVE Olympic Freeway?",
+        options: [
+            "PD ignores it.",
+            "PD gives 30 minutes before responding.",
+            "Immediate PD response to protect citizens.",
+            "Gang members get a warning."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Above Olympic Freeway = immediate PD response.",
+        wrongResponse: "Wrong! Shots above Olympic Freeway trigger immediate PD response."
+    },
+    {
+        question: "You're executed (taken somewhere and intentionally downed). What can you remember afterward?",
+        options: [
+            "Everything — names, faces, plates.",
+            "Only vague details: how you were hurt, how many people, what they wore.",
+            "Nothing at all.",
+            "Only the location."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Treat it like a traumatic memory — chaotic, partial, and unclear.",
+        wrongResponse: "Wrong! After execution, you can only remember vague details — no names, faces, or plates."
+    },
+    {
+        question: "Can you ocean dump someone's body?",
+        options: [
+            "Yes, for any reason.",
+            "No, never.",
+            "Yes, for story purposes — but it cannot force permadeath or memory loss.",
+            "Only with admin permission."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Ocean dumping is allowed for story, but can't force permadeath.",
+        wrongResponse: "Wrong! Ocean dumping is allowed for story purposes, but can't force permadeath or memory loss."
+    },
+    {
+        question: "Is erotic roleplay (ERP) allowed on the server?",
+        options: [
+            "Yes, between consenting adults.",
+            "Only in private.",
+            "No — it is strictly prohibited in all forms.",
+            "Only through text emotes."
+        ],
+        correct: 2,
+        correctResponse: "Correct. ERP is banned in all forms — text, emotes, and animations.",
+        wrongResponse: "Wrong! ERP is strictly prohibited in all forms on this server."
+    },
+    {
+        question: "Can you roleplay cancer, suicide, or pregnancy complications on the server?",
+        options: [
+            "Yes, it adds depth to my character.",
+            "Only if I ask admin first.",
+            "No — these 'bad taste RP' topics are not allowed.",
+            "Only if other players consent."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Bad taste RP topics that mirror real-life trauma are prohibited.",
+        wrongResponse: "Wrong! Topics like cancer, suicide, and pregnancy complications are classified as bad taste RP and are forbidden."
+    },
+    {
+        question: "A streamer is playing on the server. What should you NOT do?",
+        options: [
+            "Subscribe to their channel.",
+            "Use their stream to find their in-game location and go there.",
+            "Promote their stream positively.",
+            "Ignore their stream and play normally."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Using a stream to gain info about a player is stream sniping and is banned.",
+        wrongResponse: "Wrong! Using a stream to gain information about a player's location is stream sniping."
+    },
+    {
+        question: "You use a /me emote that says '/me slits throat and walks away'. Is this allowed?",
+        options: [
+            "Yes, it's creative RP.",
+            "Only if the other player agrees.",
+            "No — forcing outcomes without giving the other player a chance to react is powergaming.",
+            "Only during gang wars."
+        ],
+        correct: 2,
+        correctResponse: "Correct. You must leave room for the other player to respond.",
+        wrongResponse: "Wrong! Forcing outcomes on another player without giving them a chance to react is powergaming."
+    },
+    {
+        question: "What is the penalty for speed boosting or glitch rolling?",
+        options: [
+            "A verbal warning.",
+            "A 7-day timeout.",
+            "Permanent ban.",
+            "In-game fine only."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Speed boosting and glitch rolling get a 7-day timeout.",
+        wrongResponse: "Wrong! Speed boosting and glitch rolling result in a 7-day timeout."
+    },
+    {
+        question: "Can you commit a major crime 15 minutes before a server restart?",
+        options: [
+            "Yes, quick money.",
+            "Only small crimes.",
+            "No — major crime mechanics are prohibited 30 minutes before/after restarts.",
+            "Only if cops are online."
+        ],
+        correct: 2,
+        correctResponse: "Correct. No major crimes within 30 minutes of server restarts.",
+        wrongResponse: "Wrong! Major crime mechanics are prohibited within 30 minutes before or after server restarts."
+    },
+    {
+        question: "You continually attack the same player/gang over and over without trying to end the conflict. What is this considered?",
+        options: [
+            "Good RP.",
+            "NVL — Not Valuing Life, and potentially griefing.",
+            "Normal gameplay.",
+            "Power leveling."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Endless conflict without resolution attempts is NVL and griefing.",
+        wrongResponse: "Wrong! Continuing to engage in conflict without attempting resolution is NVL and griefing."
+    },
+    {
+        question: "What is the conflict cooldown rule for mass shootouts (gang wars)?",
+        options: [
+            "No cooldown needed.",
+            "5-minute cooldown.",
+            "Repeated large shootouts within 30–60 minutes of each other is Fail RP.",
+            "24-hour cooldown."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Mass shootouts need reasonable cooldown periods.",
+        wrongResponse: "Wrong! Multiple mass shootouts within 30–60 minutes is considered Fail RP."
+    },
+    {
+        question: "You find a money duplication glitch. What should you do?",
+        options: [
+            "Use it before anyone finds out.",
+            "Share it with friends only.",
+            "Report it to staff immediately and stop using it.",
+            "Sell the info to other players."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Report exploits immediately. Don't abuse them.",
+        wrongResponse: "Wrong! Exploiting glitches is a bannable offense. Report it to staff immediately."
+    },
+    {
+        question: "Can you camp an elevator exit and shoot someone the moment they step out?",
+        options: [
+            "Yes, it's tactical.",
+            "Only if they're a criminal.",
+            "No — camping teleports/ladders/exits with no counterplay is prohibited.",
+            "Only during heists."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Players must have a fair chance to react.",
+        wrongResponse: "Wrong! Camping exits where players have no counterplay is against the rules."
+    },
+    {
+        question: "You are a PD officer. Can you tell gang members how to 'do crime properly'?",
+        options: [
+            "Yes, I'm helping them RP better.",
+            "Only in private.",
+            "No — no backseat gangs. PD shouldn't tell gangs how to operate, and vice versa.",
+            "Only as a joke."
+        ],
+        correct: 2,
+        correctResponse: "Correct. No backseat policing, doctoring, or ganging.",
+        wrongResponse: "Wrong! Just like gangs shouldn't tell PD how to police, PD shouldn't tell gangs how to operate."
+    },
+    {
+        question: "What must you have before engaging someone in combat?",
+        options: [
+            "A good weapon.",
+            "Verbal RP interaction or being initiated into combat first.",
+            "At least 3 friends.",
+            "Admin approval."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Verbal RP before shots. Always.",
+        wrongResponse: "Wrong! You must have verbal RP interaction or be initiated into combat before engaging."
+    },
+    {
+        question: "Your gang is on your turf and gets attacked. You have 7 members present. Can all 7 defend?",
+        options: [
+            "No — only 5 can fight.",
+            "Yes — if attacked on your turf, all members present may defend themselves.",
+            "Only if police give permission.",
+            "Only 3 can fight."
+        ],
+        correct: 1,
+        correctResponse: "Correct. Turf defense allows all members present at the time of attack to defend.",
+        wrongResponse: "Wrong! If you're attacked on your turf, all members who were ALREADY there can defend."
+    },
+    {
+        question: "Can you transfer items between your own characters through a friend?",
+        options: [
+            "Yes, they're both my characters.",
+            "Only small items.",
+            "No — your characters don't know each other. This is metagaming and abuse of mechanics.",
+            "Only if staff approves."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Your characters don't know each other. Transferring between them is metagaming.",
+        wrongResponse: "Wrong! Transferring items between your own characters through intermediaries is metagaming."
+    },
+    {
+        question: "You play copyrighted music loudly in public while a content creator is nearby. Is this okay?",
+        options: [
+            "Yes, it's just music.",
+            "Only if they're not streaming.",
+            "No — it could jeopardize content creators' livelihoods.",
+            "Only in cars."
+        ],
+        correct: 2,
+        correctResponse: "Correct. Protect content creators from copyright strikes.",
+        wrongResponse: "Wrong! Playing copyrighted music in public can jeopardize content creators' livelihoods."
     }
 ];

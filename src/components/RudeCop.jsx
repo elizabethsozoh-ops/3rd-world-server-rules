@@ -112,10 +112,10 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
         const isCorrect = optionIdx === q.correct;
 
         const updatedAnswered = [...answeredQuestions, {
-            question: q.question.substring(0, 80),
+            question: q.question.substring(0, 200),
             correct: isCorrect,
-            picked: q.options[optionIdx].substring(0, 60),
-            answer: q.options[q.correct].substring(0, 60),
+            picked: q.options[optionIdx].substring(0, 120),
+            answer: q.options[q.correct].substring(0, 120),
         }];
         setAnsweredQuestions(updatedAnswered);
 
