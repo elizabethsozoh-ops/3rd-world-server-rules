@@ -1476,6 +1476,52 @@ const Page = forwardRef((props, ref) => {
                                             return;
                                         }
                                         if (isHeader) {
+                                            // Side-by-side Powergaming vs Not Powergaming blocks
+                                            if (id === 'metagaming-powergaming-1' && trimmed === 'EXAMPLES OF POWERGAMING:') {
+                                                // Grab the bullet examples
+                                                const exampleBullets = [];
+                                                let nextIdx = i + 1;
+                                                while (nextIdx < paras.length) {
+                                                    const p = paras[nextIdx].trim();
+                                                    if (p === 'NOT POWERGAMING:') break;
+                                                    if (p.startsWith('•')) exampleBullets.push(p.replace(/^•\s*/, ''));
+                                                    nextIdx++;
+                                                }
+                                                // Grab the NOT POWERGAMING content
+                                                const notPgParts = [];
+                                                for (let j = nextIdx + 1; j < paras.length; j++) {
+                                                    const p = paras[j].trim();
+                                                    if (p) notPgParts.push(p);
+                                                }
+                                                elements.push(
+                                                    <div key={`pg-grid-${i}`} className="grid grid-cols-2 gap-2 mt-1">
+                                                        <div className="border border-red-500/30 bg-red-950/10 rounded p-2">
+                                                            <p className="text-red-400 font-bold text-[11px] uppercase tracking-wider mb-1.5 border-b border-red-500/20 pb-1">Powergaming</p>
+                                                            <ul className="space-y-1">
+                                                                {exampleBullets.map((b, bIdx) => (
+                                                                    <li key={bIdx} className="text-zinc-200 text-[10.5px] leading-[1.4] flex gap-1.5">
+                                                                        <span className="text-red-400 mt-0.5 flex-shrink-0">•</span>
+                                                                        <span>{b}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                        <div className="border border-emerald-500/30 bg-emerald-950/10 rounded p-2">
+                                                            <p className="text-emerald-400 font-bold text-[11px] uppercase tracking-wider mb-1.5 border-b border-emerald-500/20 pb-1">Not Powergaming</p>
+                                                            <ul className="space-y-1">
+                                                                {notPgParts.map((p, pIdx) => (
+                                                                    <li key={pIdx} className="text-zinc-200 text-[10.5px] leading-[1.4] flex gap-1.5">
+                                                                        <span className="text-emerald-400 mt-0.5 flex-shrink-0">•</span>
+                                                                        <span>{p}</span>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                );
+                                                skipUntil = paras.length;
+                                                return;
+                                            }
                                             // THEFT line as green text, not a banner
                                             if (id === 'exploiting-mechanics-1' && trimmed.startsWith('THEFT AND OPERATION')) {
                                                 elements.push(
