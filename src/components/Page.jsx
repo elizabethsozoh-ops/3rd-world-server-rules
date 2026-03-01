@@ -1263,7 +1263,7 @@ const Page = forwardRef((props, ref) => {
                     <div className={`overflow-hidden ${id === 'rules-off-server-conduct' || id === 'greenzones-gunplay' ? 'flex-shrink-0' : 'flex-1'}`}>
                         <div className={`font-body text-zinc-100 antialiased ${id === 'rules-roleplay-first' ? 'text-[13.5px] leading-[1.55] space-y-2.5' :
                             id === 'character-conduct-1' ? 'text-[13px] leading-[1.5] space-y-2' :
-                                id === 'exploiting-mechanics-1' ? 'text-[12.5px] leading-[1.45] space-y-0.5' :
+                                id === 'exploiting-mechanics-1' ? 'text-[13px] leading-[1.45] space-y-0.5' :
                                     id === 'exploiting-mechanics-2' ? 'text-[14px] leading-relaxed space-y-2' :
                                         id === 'metagaming-powergaming-1' ? 'text-[11.5px] leading-[1.4] space-y-1.5' :
                                             id === 'failrp-government-2' ? 'text-[11px] leading-[1.4] space-y-1.5' :
@@ -1479,7 +1479,7 @@ const Page = forwardRef((props, ref) => {
                                             // THEFT line as green text, not a banner
                                             if (id === 'exploiting-mechanics-1' && trimmed.startsWith('THEFT AND OPERATION')) {
                                                 elements.push(
-                                                    <p key={i} className="text-emerald-400 font-bold text-[12.5px] mt-1.5 mb-0.5 leading-[1.45]" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>
+                                                    <p key={i} className="text-emerald-400 font-bold text-[13px] mt-1.5 mb-0.5 leading-[1.45]" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>
                                                         {trimmed}
                                                     </p>
                                                 );
@@ -1501,6 +1501,8 @@ const Page = forwardRef((props, ref) => {
                                             if (id === 'exploiting-mechanics-1') {
                                                 const bulletText = trimmed.replace(/^• ?/, '');
                                                 const boldParts = [
+                                                    'Combat logging',
+                                                    'Camping respawn points',
                                                     'Any form of money/item duplication, glitch abuse, or exploiting game mechanics',
                                                     'Speed boosting',
                                                     'Glitch rolling',
@@ -1533,7 +1535,7 @@ const Page = forwardRef((props, ref) => {
                                                     }
                                                 }
                                                 elements.push(
-                                                    <p key={i} className="block pl-4 leading-[1.45] text-[12.5px] mb-0.5">
+                                                    <p key={i} className="block pl-4 leading-[1.45] text-[13px] mb-0.5">
                                                         <span className="text-emerald-400 font-bold" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>• </span>
                                                         {spans}
                                                     </p>
