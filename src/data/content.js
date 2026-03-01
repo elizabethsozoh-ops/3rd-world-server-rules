@@ -433,7 +433,9 @@ Metagaming is the act of using information your character has not gained in char
 
 This includes indirectly using the information. Just because you don't openly say the meta'd information out loud does not mean you haven't used it to take actions your character would not have otherwise to gain a favorable result.
 
-*NB* This includes reading messages from a chat and then proceeding to do things or change character behaviour based on the message!`,
+*NB* This includes reading messages from a chat and then proceeding to do things or change character behaviour based on the message!
+
+The use of any 3rd Party Communication Tools to discuss roleplay or server related content while the player is currently loaded into 3rd WorldRP server, is strictly prohibited and will result in serious consequences.`,
         pageNumber: 22,
         enhancedVisuals: true
     },
@@ -457,9 +459,7 @@ This includes indirectly using the information. Just because you don't openly sa
         section: 'SERVER RULES',
         sectionColor: 'purple',
         isFirstPageOfSection: false,
-        content: `The use of any 3rd Party Communication Tools to discuss roleplay or server related content while the player is currently loaded into 3rd WorldRP server, is strictly prohibited and will result in serious consequences.
-
-NO STREAM SNIPING OR CLOUT CHASING
+        content: `NO STREAM SNIPING OR CLOUT CHASING
 
 Support streamers by subscribing, promoting their streams, and being a positive member of their community. Do not engage streamers in their stream chat while playing on the server!
 

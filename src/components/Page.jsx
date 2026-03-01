@@ -1561,7 +1561,8 @@ const Page = forwardRef((props, ref) => {
                                                 'This includes when a gun',
                                                 'Metagaming is the act',
                                                 'This includes indirectly',
-                                                '*NB* This includes'
+                                                '*NB* This includes',
+                                                'The use of any 3rd Party Communication Tools'
                                             ];
                                             let matched = null;
                                             for (const gs of greenStarts) {
