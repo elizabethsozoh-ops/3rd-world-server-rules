@@ -524,6 +524,8 @@ GOVERNMENT AND ALLOWLISTED JOB RULES
 Government roles naturally hold power over criminals, but that power must be used fairly and with RP justification. Targeting specific players or groups repeatedly without solid in-character reasoning is Fail RP.
 
 Undermining or sabotaging departments for OOC reasons (e.g. rank disputes, mechanics, or admin decisions) is not allowed and will be treated as an OOC breach.
+
+
 If you're upset OOC, open a ticket or just log off. Do not take it out in-game or use RP to air personal frustrations.
 ✓ IC conflict is fine
 ✗ OOC sabotage is not
