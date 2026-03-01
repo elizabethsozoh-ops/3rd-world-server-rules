@@ -17,7 +17,7 @@ const EditorSidebar = () => {
         <div className="w-80 bg-zinc-800 border-r border-zinc-700 p-4 h-full flex flex-col gap-6 text-white overflow-y-auto z-50">
             {/* Header */}
             <div>
-                <h2 className="text-xl font-display text-yellow-500 mb-1">FlipOff Studio</h2>
+                <h2 className="text-xl font-display text-yellow-500 mb-1">3rd World RP Studio</h2>
                 <p className="text-xs text-zinc-400">Interactive Book Builder</p>
                 <div className="mt-4 flex gap-2">
                     <button className="flex-1 py-2 bg-blue-600 rounded text-xs font-bold hover:bg-blue-500 transition-colors uppercase">

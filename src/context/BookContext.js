@@ -12,7 +12,7 @@ const initialPages = [
 
 export const BookProvider = ({ children }) => {
     const [bookSettings, setBookSettings] = useState({
-        title: 'My First FlipOff',
+        title: '3rd World RP Server Rules',
         theme: 'modern', // 'comic', 'modern', 'dark'
         layout: 'double', // 'single', 'double'
         showShadows: true,

@@ -15,7 +15,7 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export const metadata = {
-  title: "FlipOff - 3rd World RP Rulebook",
+  title: "3rd World RP - Server Rules",
   description: "Interactive Comic Book Rulebook for 3rd World RP",
 };
 
