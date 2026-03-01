@@ -1,6 +1,6 @@
 export async function POST(req) {
     try {
-        const { score, total, passThreshold, discordUsername, questions, timestamp } = await req.json();
+        const { score, total, passThreshold, discordUsername, discordUserId, questions, timestamp } = await req.json();
 
         const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
         if (!webhookUrl) {
@@ -16,7 +16,7 @@ export async function POST(req) {
             title: passed ? 'W.I.Z EXAM — PASSED' : 'W.I.Z EXAM — FAILED',
             color: passed ? 0x22c55e : 0xef4444,
             fields: [
-                { name: 'Applicant', value: discordUsername || 'Unknown', inline: true },
+                { name: 'Applicant', value: discordUserId ? `<@${discordUserId}> (${discordUsername})` : (discordUsername || 'Unknown'), inline: true },
                 { name: 'Score', value: `${score}/${total}`, inline: true },
                 { name: 'Result', value: passed ? 'KNOWLEDGE VERIFIED' : 'INSUFFICIENT', inline: true },
                 { name: 'Timestamp', value: new Date(timestamp).toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' }), inline: false },

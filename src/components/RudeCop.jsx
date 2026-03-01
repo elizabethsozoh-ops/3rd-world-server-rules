@@ -25,6 +25,8 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
     const [wrongCount, setWrongCount] = useState(0);
     const [discordUsername, setDiscordUsername] = useState('');
     const [usernameError, setUsernameError] = useState('');
+    const [verifying, setVerifying] = useState(false);
+    const [verifiedUser, setVerifiedUser] = useState(null);
 
     const isEnd = currentPage >= totalPages;
 
@@ -38,7 +40,7 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
         }
     }, [currentPage, isEnd, isOpen, mode]);
 
-    const startQuiz = () => {
+    const startQuiz = async () => {
         const trimmed = discordUsername.trim();
         if (!trimmed || trimmed.length < 2) {
             setUsernameError('IDENTIFY YOURSELF. Minimum 2 characters.');
@@ -49,6 +51,30 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
             return;
         }
         setUsernameError('');
+        setVerifying(true);
+
+        // Verify username against Discord server
+        try {
+            const res = await fetch('/api/verify-discord', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: trimmed }),
+            });
+            const data = await res.json();
+
+            if (!data.verified) {
+                setUsernameError(data.error || 'Username not found in 3rd World RP Discord. You must be in the server first.');
+                setVerifying(false);
+                return;
+            }
+            if (data.member) {
+                setVerifiedUser(data.member);
+            }
+        } catch {
+            // If verification fails, allow quiz anyway (graceful degradation)
+        }
+        setVerifying(false);
+
         const shuffled = [...QUIZ_QUESTIONS].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, TOTAL_QUESTIONS);
         setExamQuestions(selected);
@@ -71,6 +97,7 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
                     total: TOTAL_QUESTIONS,
                     passThreshold: PASS_THRESHOLD,
                     discordUsername: discordUsername.trim(),
+                    discordUserId: verifiedUser?.id || null,
                     questions,
                     timestamp: new Date().toISOString(),
                 }),
@@ -271,9 +298,10 @@ const WIZ = ({ onPass, currentPage, totalPages }) => {
 
                                 <button
                                     onClick={startQuiz}
-                                    className="w-full py-5 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-black border-2 border-blue-500 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] rounded-xl uppercase tracking-[0.2em] text-lg animate-pulse"
+                                    disabled={verifying}
+                                    className={`w-full py-5 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-black border-2 border-blue-500 hover:from-blue-500 hover:to-blue-700 transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] rounded-xl uppercase tracking-[0.2em] text-lg ${verifying ? 'opacity-60 cursor-wait' : 'animate-pulse'}`}
                                 >
-                                    START EXAM
+                                    {verifying ? 'VERIFYING IDENTITY...' : 'START EXAM'}
                                 </button>
                             </>
                         )}
