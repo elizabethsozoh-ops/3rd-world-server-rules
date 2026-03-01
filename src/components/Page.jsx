@@ -1476,6 +1476,15 @@ const Page = forwardRef((props, ref) => {
                                             return;
                                         }
                                         if (isHeader) {
+                                            // THEFT line as green text, not a banner
+                                            if (id === 'exploiting-mechanics-1' && trimmed.startsWith('THEFT AND OPERATION')) {
+                                                elements.push(
+                                                    <p key={i} className="text-emerald-400 font-bold text-[12.5px] mt-1.5 mb-0.5 leading-[1.45]" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>
+                                                        {trimmed}
+                                                    </p>
+                                                );
+                                                return;
+                                            }
                                             elements.push(
                                                 <p key={i} className={`text-purple-400 font-bold tracking-wide uppercase border-l-4 border-purple-500 pl-3 bg-purple-950/20 py-1 rounded-r ${id === 'rules-roleplay-first' ? 'text-[17px] mt-3 mb-2' :
                                                     id === 'character-conduct-1' ? 'text-[16px] mt-2.5 mb-1.5' :
@@ -1488,10 +1497,52 @@ const Page = forwardRef((props, ref) => {
                                             return;
                                         }
                                         if (isBullet) {
+                                            // Special rendering for exploiting-mechanics-1: white text with green bold
+                                            if (id === 'exploiting-mechanics-1') {
+                                                const bulletText = trimmed.replace(/^• ?/, '');
+                                                const boldParts = [
+                                                    'Any form of money/item duplication, glitch abuse, or exploiting game mechanics',
+                                                    'Speed boosting',
+                                                    'Glitch rolling',
+                                                    'PROHIBITED',
+                                                    'immediate 7-Day Timeout',
+                                                    '30 minutes before or after regularly scheduled restarts.'
+                                                ];
+                                                let remaining = bulletText;
+                                                const spans = [];
+                                                let spanKey = 0;
+                                                while (remaining.length > 0) {
+                                                    let earliestIdx = remaining.length;
+                                                    let earliestPart = null;
+                                                    for (const bp of boldParts) {
+                                                        const idx = remaining.indexOf(bp);
+                                                        if (idx !== -1 && idx < earliestIdx) {
+                                                            earliestIdx = idx;
+                                                            earliestPart = bp;
+                                                        }
+                                                    }
+                                                    if (earliestPart) {
+                                                        if (earliestIdx > 0) {
+                                                            spans.push(<span key={spanKey++} className="text-zinc-100">{remaining.slice(0, earliestIdx)}</span>);
+                                                        }
+                                                        spans.push(<span key={spanKey++} className="text-emerald-400 font-bold">{earliestPart}</span>);
+                                                        remaining = remaining.slice(earliestIdx + earliestPart.length);
+                                                    } else {
+                                                        spans.push(<span key={spanKey++} className="text-zinc-100">{remaining}</span>);
+                                                        remaining = '';
+                                                    }
+                                                }
+                                                elements.push(
+                                                    <p key={i} className="block pl-4 leading-[1.45] text-[12.5px] mb-0.5">
+                                                        <span className="text-emerald-400 font-bold" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>• </span>
+                                                        {spans}
+                                                    </p>
+                                                );
+                                                return;
+                                            }
                                             elements.push(
                                                 <p key={i} className={`block text-emerald-400 font-normal pl-4 leading-relaxed ${id === 'rules-roleplay-first' ? 'text-[13px] mb-2' :
                                                     id === 'character-conduct-1' ? 'text-[12.5px] mb-1.5' :
-                                                        id === 'exploiting-mechanics-1' ? 'text-[14.5px] mb-2' :
                                                             'text-[14px] mb-2'
                                                     }`} style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>
                                                     {trimmed}
