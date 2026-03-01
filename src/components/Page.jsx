@@ -1554,6 +1554,39 @@ const Page = forwardRef((props, ref) => {
                                         }
                                         // Special handling for "Do not exploit situations including:"
                                         const isExploitIntro = trimmed === 'Do not exploit situations including:';
+                                        // NVL + Metagaming page: green starts, no gaps between paragraphs
+                                        if (id === 'exploiting-mechanics-3') {
+                                            const greenStarts = [
+                                                'Value your life',
+                                                'This includes when a gun',
+                                                'Metagaming is the act',
+                                                'This includes indirectly',
+                                                '*NB* This includes'
+                                            ];
+                                            let matched = null;
+                                            for (const gs of greenStarts) {
+                                                if (trimmed.startsWith(gs)) {
+                                                    matched = gs;
+                                                    break;
+                                                }
+                                            }
+                                            if (matched) {
+                                                const rest = trimmed.slice(matched.length);
+                                                elements.push(
+                                                    <p key={i} className="text-zinc-100 leading-[1.45] pl-1 opacity-90 text-[13.5px] mb-0.5">
+                                                        <span className="text-emerald-400 font-bold" style={{ textShadow: '0 0 8px rgba(74,222,128,0.4)' }}>{matched}</span>
+                                                        {rest}
+                                                    </p>
+                                                );
+                                            } else {
+                                                elements.push(
+                                                    <p key={i} className="text-zinc-100 leading-[1.45] pl-1 opacity-90 text-[13.5px] mb-0.5">
+                                                        {trimmed}
+                                                    </p>
+                                                );
+                                            }
+                                            return;
+                                        }
                                         elements.push(
                                             <p key={i} className={`text-zinc-100 leading-relaxed pl-1 opacity-90 ${id === 'rules-roleplay-first' ? 'text-[13.5px] mb-2' :
                                                 id === 'character-conduct-1' ? 'text-[13px] mb-1.5' :
